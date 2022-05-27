@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+    </head>
+    <body>
+        
+        <h1><title>Calorie Tracker</title>Calorie Tracker</h1>
+        This webpage is designed to help track daily calorie and macronutrient intake. Starting off you will need to have a weight and calorie intake goal. Please visit this free 
+        <a href="https://fitnessvolt.com/weight-gain-calculator/" target="_blank">calorie calculator</a>
+        to understand your calorie intake for your weight goal. Once finished, please enter your weight goal and type your calorie goal and protein goal in the boxes below. 
+        <select name="Your calorie goal" id="f1"> 
+        <option value="Maintain Weight" selected="selected">Maintain Weight</option>
+        <option value="Gain Weight" selected="selected">Gain Weight</option>
+        <option value="Lose Weight" selected="selected">Lose Weight</option>
+        
+    
+            
+      </select>
+        <br>
+        <br>
+        <br>
+        <table>
+             <tr>
+        <th>Calorie Goal</th>
+        <th>Protein Goal</th>
+                  <tr>
+        <td><input type="text" value="0" id="cg"></td>
+        <td><input type="text" value="0" id="pg"></td>
+            </tr>
+        </table>
+            <br>
+            <br>
+            <h2>How it works</h2>
+            <p>Simply insert your calorie intake per meal as well as macronutients below in the chart. Once your day of eating has come to an end, hit the <em>Sumbit</em> button.</p>
+        <button type="button"id="button">Submit</button>
+     <div style="display: flex;justify-content:center">
+         
+        <table>
+      <tr>
+        <th>Meal</th>
+        <th>Calories</th>
+        <th>Protein (g)</th>
+      </tr>
+      <tr>
+
+        <td><input type="text" value="" id="a1"></td>
+        <td><input type="text" value="0" id="b1"></td>
+        <td><input type="text" value="0" id="c1"></td>
+
+      </tr>
+      <tr>
+        <td><input type="text" value="" id="a2"></td>
+        <td><input type="text" value="0" id="b2"></td>
+        <td><input type="text" value="0" id="c2"></td>
+
+
+      </tr>
+             <tr>
+        <td><input type="text" value="" id="a3"></td>
+        <td><input type="text" value="0" id="b3"></td>
+        <td><input type="text" value="0" id="c3"></td>
+
+
+      </tr>
+             <tr>
+        <td><input type="text" value="" id="a4"></td>
+        <td><input type="text" value="0" id="b4"></td>
+        <td><input type="text" value="0" id="c4"></td>
+
+
+      </tr>
+             <tr>
+        <td><input type="text" value="" id="a5"></td>
+        <td><input type="text" value="0" id="b5"></td>
+        <td><input type="text" value="0" id="c5"></td>
+
+
+      </tr>
+            <tr>
+       <td><input type="text" value="" id="a6"></td>
+        <td><input type="text" value="0" id="b6"></td>
+        <td><input type="text" value="0" id="c6"></td>
+
+
+      </tr>
+      <br>
+
+
+    </table>
+     
+    <table>
+         <tr>
+
+        <th>Total Amount of Calories</th>
+        <th>Total Grams of Protein</th>
+      </tr>
+      <tr>
+
+
+        <td id="output1">0</td>
+        <td id="output2">0</td>
+        </table>
+        </div> 
+        <br>
+        <br>
+        
+        <table>
+             <tr>
+                 <th>Calorie Intake-Calorie Goal</th>
+                 <th>Protien Intake-Protien Goal</th>
+            </tr>
+                  <tr>
+        <td id="calccalories">0</td>
+        <td id="calcprotien">0</td>
+            </tr>
+        </table>
+        <p id=out></p>
+        
+        <script>
+        function update_menu() {
+        
+            var a1=document.getElementById("a1").value; 
+            var b1=document.getElementById("b1").value; 
+            var c1=document.getElementById("c1").value; 
+            var a2=document.getElementById("a2").value; 
+            var b2=document.getElementById("b2").value; 
+            var c2=document.getElementById("c2").value; 
+            var a3=document.getElementById("a3").value; 
+            var b3=document.getElementById("b3").value; 
+            var c3=document.getElementById("c3").value; 
+            var a4=document.getElementById("a4").value; 
+            var b4=document.getElementById("b4").value; 
+            var c4=document.getElementById("c4").value; 
+            var a5=document.getElementById("a5").value; 
+            var b5=document.getElementById("b5").value; 
+            var c5=document.getElementById("c5").value; 
+            var a6=document.getElementById("a6").value; 
+            var b6=document.getElementById("b6").value; 
+            var c6=document.getElementById("c6").value; 
+            var output1= parseInt(b1)+parseInt(b2)+parseInt(b3)+parseInt(b4)+parseInt(b5)+parseInt(b6); 
+            document.getElementById("output1").innerHTML=output1;
+            var output2= parseInt(c1)+parseInt(c2)+parseInt(c3)+parseInt(c4)+parseInt(c5)+parseInt(c6);
+            document.getElementById("output2").innerHTML=output2;
+            var cg=document.getElementById("cg").value; 
+            var pg=document.getElementById("pg").value;
+            var select = document.getElementById("f1");
+            var value = select.options[select.selectedIndex].value;
+            console.log(value);
+            var sentence;
+            if (cg>output1 && pg>output2) { //calorie and progein goal exeeded
+                if (value=="Gain Weight") {
+                    sentence="You exeeded your calorie intake and your protein intake today. Great job.";
+                } else if (value=="Lose Weight"){
+                    sentence="You exeeded your calorie intake and protein intake. Great job on the protein but next time cut back on the calories.";
+                } else if (value=="Maintain Weight"){
+                    sentence="You exeeded your calorie intake and protein intake. Great job on the protein but next time cut back on the calories.";
+                }
+            } else if (cg<output1 && pg>output2) { //protein exeeded calorie not met
+                if (value=="Gain Weight") {
+                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein but next time make sure to consume more calories.";
+                } else if (value=="Lose Weight"){
+                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein but next time make sure to consume more calories.";
+                } else if (value=="Maintain Weight"){
+                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein but next time make sure to consume more calories.";
+                }
+            } else if (cg>output1 && pg<output2){ //calorie exeeded protein not met 
+                if (value=="Gain Weight") {
+                    sentence="You exeeded your calorie intake and you did not meet your protein intake. Great job on the calories but next time make sure we consume more protein.";
+                } else if (value=="Lose Weight"){
+                    sentence="You exeeded your calorie intake and you did not meet your protein intake. Next time cut back on the calories ande consume more protein.";
+                } else if (value=="Maintain Weight"){
+                    sentence="You exeeded your calorie intake and you did not meet your protein intake. Next time cut back on the calories ande consume more protein.";
+                }
+            } else {
+                if (value=="Gain Weight") { //both are equal 
+                    sentence="You met both your calorie and protein intake today. Great work!";
+                } else if (value=="Lose Weight"){
+                    sentence="You met both your calorie and protein intake today. Great work!";
+                } else if (value=="Maintain Weight"){
+                    sentence="You met both your calorie and protein intake today. Great work!";
+                }
+            }
+            
+            document.getElementById("out").innerHTML=sentence;
+            
+            var calcCalories=output1-cg;
+            var calcProtien=output2-pg;
+            
+            document.getElementById("calccalories").innerHTML=calcCalories;
+            document.getElementById("calcprotien").innerHTML=calcProtien;
+            }
+            
+            document.getElementById("button").addEventListener("click", update_menu);
+            
+           
+
+        </script>
+
+    </body>
+    <style>
+        body {
+            background-color: grey;
+        }
+        title{
+        font-family: "Times New Roman", Times, serif;
+        }
+        table, th, td {
+        border: 1px solid black;
+            padding: 5px;
+            background-color: grey;
+        }
+         td, input {
+            background-color: grey;
+        }
+    </style>
+    
+
+</html>                                                                          
