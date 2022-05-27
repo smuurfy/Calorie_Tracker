@@ -158,11 +158,11 @@
                 }
             } else if (cg<output1 && pg>output2) { //protein exeeded calorie not met
                 if (value=="Gain Weight") {
-                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein but next time make sure to consume more calories.";
+                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein, but eat more calories.";
                 } else if (value=="Lose Weight"){
-                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein but next time make sure to consume more calories.";
+                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein and calories.";
                 } else if (value=="Maintain Weight"){
-                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein but next time make sure to consume more calories.";
+                    sentence="You exeeded your protein intake and you did not meet your calorie intake. Great job on the protein, but eat more calories.";
                 }
             } else if (cg>output1 && pg<output2){ //calorie exeeded protein not met 
                 if (value=="Gain Weight") {
@@ -170,13 +170,13 @@
                 } else if (value=="Lose Weight"){
                     sentence="You exeeded your calorie intake and you did not meet your protein intake. Next time cut back on the calories ande consume more protein.";
                 } else if (value=="Maintain Weight"){
-                    sentence="You exeeded your calorie intake and you did not meet your protein intake. Next time cut back on the calories ande consume more protein.";
+                    sentence="You exeeded your calorie intake and you did not meet your protein intake. Next time cut back on the calories and consume more protein.";
                 }
             } else {
                 if (value=="Gain Weight") { //both are equal 
-                    sentence="You did well on both your calorie and protein intake. Great work!";
+                    sentence="You did well on your protein intake, but you need more calories!";
                 } else if (value=="Lose Weight"){
-                    sentence="You did well on both your calorie and protein intake. Great work!";
+                    sentence="You did well on your protein intake, but watch the calories you had too much.";
                 } else if (value=="Maintain Weight"){
                     sentence="You did well on both your calorie and protein intake. Great work!";
                 }
